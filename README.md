@@ -21,11 +21,3 @@ of a line and the end of a line.
 - Explore window-management methods/plugins, as this is something I still struggle with.
 - Find a nice colour scheme.
 
-<script>
-
-  img {
-    width: 30%;
-  }
-
-</script>
-
