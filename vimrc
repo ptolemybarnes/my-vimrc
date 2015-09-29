@@ -1,5 +1,8 @@
-" *******************- Vundle Setup ************************
 set nocompatible              " be iMproved, required
+
+"" means I dont have to bundle exec
+set shell=/bin/sh
+set shellcmdflag=-ic
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -20,6 +23,8 @@ Plugin 'JulesWang/css.vim'
 
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'jlanzarotta/bufexplorer'
+
 Plugin 'bling/vim-bufferline'
 
 Plugin 'bling/vim-airline'
@@ -32,11 +37,17 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-vividchalk'
 
 Plugin 'tomasr/molokai'
-
+    
 Plugin 'chriskempson/vim-tomorrow-theme'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-ruby/vim-ruby'
+
+Plugin 'junkblocker/patchreview-vim'
+Plugin 'codegram/vim-codereview'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-eunuch'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -63,17 +74,18 @@ set wildmode=list:longest
 set visualbell
 set ttyfast
 set ruler
-set backspace=indent,eol,start
 set laststatus=2
 
 " set path for .swp files
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set colorcolumn=85
+
+" colours the 80th column
+set colorcolumn=80
 
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=195
+highlight CursorLine cterm=NONE ctermbg=236
 " " Set color of number column on cursorline
 highlight CursorLineNR ctermbg=229 ctermfg=white
 
@@ -97,6 +109,8 @@ nnoremap <CR> :wa<CR>:!!<CR>
 " switching between buffers
 nnoremap <SPACE> :bn<CR>
 nnoremap <NUL> :bp<CR>
+
+"buffer explorer
 
 " inserting a star?
 nnoremap p "0p
@@ -129,4 +143,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 
+"" ctrlp config
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
+
+"" insert byebug
+map <Leader>b irequire 'byebug'; byebug<ESC><ESC>
+
+"" save on lost focus
+:au FocusLost * silent! wa
 
